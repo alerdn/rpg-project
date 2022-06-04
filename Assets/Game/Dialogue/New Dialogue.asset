@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: qwe
-    text: Hi there
-    children:
-    - 
-  - uniqueID: 
+  - uniqueID: 17dda5ce-86ce-48d4-a849-bb1bbf5bb6fc
     text: 
     children: []
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 125
