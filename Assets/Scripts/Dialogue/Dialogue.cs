@@ -1,34 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace RPG.Dialogue
 {
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue", order = 0)]
-    public class Dialogue : ScriptableObject
+    public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField]
         List<DialogueNode> nodes = new List<DialogueNode>();
 
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
-
-        // Anotação para rodar essa função apenas no modo edição da Unity
-#if UNITY_EDITOR
-        private void Awake()
-        {
-            if (nodes.Count == 0)
-            {
-                DialogueNode rootNode = new DialogueNode
-                {
-                    uniqueID = Guid.NewGuid().ToString()
-                };
-                nodes.Add(rootNode);
-            }
-
-            OnValidate();
-        }
-#endif
 
         /* OnValidate é como o Awake, ele executa quando carrega o ScriptableObject, mas também quando ele é editado
          * Temos que chamar essa função manualmente no Awake() porque ela só é executada no Inspector
@@ -39,7 +23,7 @@ namespace RPG.Dialogue
             nodeLookup.Clear();
             foreach (DialogueNode node in GetAllNodes())
             {
-                nodeLookup[node.uniqueID] = node;
+                nodeLookup[node.name] = node;
             }
         }
 
@@ -55,34 +39,81 @@ namespace RPG.Dialogue
 
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
         {
-            foreach (string childID in parentNode.children)
+            foreach (string childID in parentNode.GetChildren())
             {
                 if (nodeLookup.ContainsKey(childID))
                     yield return nodeLookup[childID];
             }
         }
 
+#if UNITY_EDITOR
         public void CreateNode(DialogueNode parent)
         {
-            DialogueNode childNode = new DialogueNode { uniqueID = Guid.NewGuid().ToString() };
-            parent.children.Add(childNode.uniqueID);
-            nodes.Add(childNode);
-            OnValidate();
+            DialogueNode newNode = MakeNode(parent);
+            Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
+            Undo.RecordObject(this, "Added Dialogue Node");
+            AddNode(newNode);
         }
 
         public void DeleteNode(DialogueNode nodeToDelete)
         {
+            Undo.RecordObject(this, "Deleted Dialogue Node");
             nodes.Remove(nodeToDelete);
+
             OnValidate();
             CleanDanglingChildren(nodeToDelete);
+
+            // Destroi o objeto e registra no Undo
+            Undo.DestroyObjectImmediate(nodeToDelete);
+        }
+
+        private static DialogueNode MakeNode(DialogueNode parent)
+        {
+            DialogueNode childNode = CreateInstance<DialogueNode>();
+            childNode.name = Guid.NewGuid().ToString();
+            parent?.AddChild(childNode.name);
+            return childNode;
+        }
+
+        private void AddNode(DialogueNode childNode)
+        {
+            nodes.Add(childNode);
+            OnValidate();
         }
 
         private void CleanDanglingChildren(DialogueNode nodeToDelete)
         {
             foreach (DialogueNode node in GetAllNodes())
             {
-                node.children.Remove(nodeToDelete.uniqueID);
+                node.RemoveChild(nodeToDelete.name);
             }
+        }
+
+#endif
+        public void OnBeforeSerialize()
+        {
+#if UNITY_EDITOR
+            if (nodes.Count == 0)
+            {
+                DialogueNode newNode = MakeNode(null);
+                AddNode(newNode);
+            }
+
+            if (AssetDatabase.GetAssetPath(this) != "")
+            {
+                foreach (DialogueNode node in GetAllNodes())
+                {
+                    if (AssetDatabase.GetAssetPath(node) == "")
+                    {
+                        AssetDatabase.AddObjectToAsset(node, this);
+                    }
+                }
+            }
+#endif
+        }
+
+        public void OnAfterDeserialize()
+        {
         }
     }
 }
