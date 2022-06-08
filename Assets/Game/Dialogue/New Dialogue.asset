@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 2d851c81-6f8e-47eb-98b9-0ed8b90df0bf
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: asdasd
+  text: Hello There
   children:
   - 41acd749-f28e-44a6-bed3-0c7c12ac8681
   rect:
     serializedVersion: 2
-    x: 39
-    y: 89
+    x: 79
+    y: 98
     width: 200
     height: 125
 --- !u!114 &11400000
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 41acd749-f28e-44a6-bed3-0c7c12ac8681
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: 
+  text: General Kenobi
   children: []
   rect:
     serializedVersion: 2
