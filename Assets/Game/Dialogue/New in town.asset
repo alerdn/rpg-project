@@ -1,0 +1,176 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6907103690749736579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 962d42fb-1ff8-4f23-a2dd-8ccfeee7f926
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Hi
+  children:
+  - 973376e7-2b08-45b9-b014-7d3bb97cd65e
+  - ec5d705d-08d5-4b02-ac0a-f20d843c30a9
+  rect:
+    serializedVersion: 2
+    x: 319
+    y: 273
+    width: 200
+    height: 125
+--- !u!114 &-2888046181051953277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 973376e7-2b08-45b9-b014-7d3bb97cd65e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Bye
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 618
+    y: 297
+    width: 200
+    height: 125
+--- !u!114 &-1028999550274650465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 2d851c81-6f8e-47eb-98b9-0ed8b90df0bf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hello There
+  children:
+  - 41acd749-f28e-44a6-bed3-0c7c12ac8681
+  - 962d42fb-1ff8-4f23-a2dd-8ccfeee7f926
+  rect:
+    serializedVersion: 2
+    x: 49
+    y: 35
+    width: 200
+    height: 125
+--- !u!114 &-845418198326250869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 911f9bf1-5299-4123-a0e9-b084b172c125
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Im gonna kill you
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 611
+    y: 169
+    width: 200
+    height: 125
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bcea215fdf3e14584687cdbf349b91, type: 3}
+  m_Name: New in town
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1028999550274650465}
+  - {fileID: 5323123476615912623}
+  - {fileID: 8582264941792411703}
+  - {fileID: -6907103690749736579}
+  - {fileID: -2888046181051953277}
+  - {fileID: -845418198326250869}
+  - {fileID: 2786855060543026475}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2786855060543026475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: ec5d705d-08d5-4b02-ac0a-f20d843c30a9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ablu ble
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 610
+    y: 417
+    width: 200
+    height: 125
+--- !u!114 &5323123476615912623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 41acd749-f28e-44a6-bed3-0c7c12ac8681
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: General Kenobi
+  children:
+  - 24598812-bbe3-4f3e-9f25-d85e5f8113ea
+  - 911f9bf1-5299-4123-a0e9-b084b172c125
+  rect:
+    serializedVersion: 2
+    x: 311
+    y: 58
+    width: 200
+    height: 125
+--- !u!114 &8582264941792411703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 24598812-bbe3-4f3e-9f25-d85e5f8113ea
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Time to die!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 602
+    y: 47
+    width: 200
+    height: 125
