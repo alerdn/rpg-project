@@ -84,8 +84,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 611
-    y: 169
+    x: 612
+    y: 170
     width: 200
     height: 125
 --- !u!114 &11400000
