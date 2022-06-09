@@ -9,9 +9,10 @@ namespace RPG.UI
 {
     public class DialogueUI : MonoBehaviour
     {
-        PlayerConversant playerConversant;
+        [SerializeField] PlayerConversant playerConversant;
         [SerializeField] TextMeshProUGUI AIText;
         [SerializeField] Button nextButton;
+        [SerializeField] GameObject AIResponse;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
 
@@ -31,19 +32,26 @@ namespace RPG.UI
 
         private void UpdateUI()
         {
-            AIText.text = playerConversant.GetText();
-            nextButton.gameObject.SetActive(playerConversant.HasNext());
-            
-            // Limpando e desenhando botões
-            foreach (Transform item in choiceRoot)
-            {
-                Destroy(item.gameObject);
-            }
+            AIResponse.SetActive(!playerConversant.IsChoosing());
+            choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 
-            foreach(string choiceText in playerConversant.GetChoices())
+            if (playerConversant.IsChoosing())
             {
-                GameObject button = Instantiate(choicePrefab, choiceRoot);
-                button.GetComponentInChildren<TMP_Text>().text = choiceText;
+                // Limpando e desenhando botões
+                foreach (Transform item in choiceRoot)
+                {
+                    Destroy(item.gameObject);
+                }
+                foreach (string choiceText in playerConversant.GetChoices())
+                {
+                    GameObject button = Instantiate(choicePrefab, choiceRoot);
+                    button.GetComponentInChildren<TMP_Text>().text = choiceText;
+                }
+            }
+            else
+            {
+                AIText.text = playerConversant.GetText();
+                nextButton.gameObject.SetActive(playerConversant.HasNext());
             }
         }
     }
