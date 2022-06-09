@@ -744,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f30d48ab684bc241b3445edd7f81650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerConversant: {fileID: 0}
   AIText: {fileID: 5281467246796149929}
   nextButton: {fileID: 8459012722113441459}
   AIResponse: {fileID: 5930585480017615547}
@@ -1054,17 +1055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
-        type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
-        type: 3}
-      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
@@ -1210,7 +1201,7 @@ PrefabInstance:
     - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
         type: 3}
@@ -1220,7 +1211,7 @@ PrefabInstance:
     - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3728977440585369067, guid: 43d4931729b6baa4eac93ba4277166f5,
         type: 3}

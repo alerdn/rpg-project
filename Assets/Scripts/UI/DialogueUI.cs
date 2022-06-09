@@ -37,21 +37,33 @@ namespace RPG.UI
 
             if (playerConversant.IsChoosing())
             {
-                // Limpando e desenhando botões
-                foreach (Transform item in choiceRoot)
-                {
-                    Destroy(item.gameObject);
-                }
-                foreach (string choiceText in playerConversant.GetChoices())
-                {
-                    GameObject button = Instantiate(choicePrefab, choiceRoot);
-                    button.GetComponentInChildren<TMP_Text>().text = choiceText;
-                }
+                BuildChoiceList();
             }
             else
             {
                 AIText.text = playerConversant.GetText();
                 nextButton.gameObject.SetActive(playerConversant.HasNext());
+            }
+        }
+
+        private void BuildChoiceList()
+        {
+            // Limpando e desenhando botões
+            foreach (Transform item in choiceRoot)
+            {
+                Destroy(item.gameObject);
+            }
+            foreach (DialogueNode choice in playerConversant.GetChoices())
+            {
+                GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
+                choiceInstance.GetComponentInChildren<TMP_Text>().text = choice.GetText();
+
+                Button button = choiceInstance.GetComponent<Button>();
+                button.onClick.AddListener(() =>
+                {
+                    playerConversant.SelectChoice(choice);
+                    UpdateUI();
+                });
             }
         }
     }

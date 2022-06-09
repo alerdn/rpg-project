@@ -31,10 +31,16 @@ namespace RPG.Dialogue
             return currentNode.GetText();
         }
 
-        public IEnumerable<string> GetChoices()
+        public IEnumerable<DialogueNode> GetChoices()
         {
-            yield return "General Kenobi";
-            yield return "Hi!";
+            return currentDialogue.GetPlayerChildren(currentNode);
+        }
+
+        public void SelectChoice(DialogueNode chosenNode)
+        {
+            currentNode = chosenNode;
+            isChoosing = false;
+            Next();
         }
 
         public void Next()
