@@ -10,8 +10,10 @@ namespace RPG.UI
     public class DialogueUI : MonoBehaviour
     {
         [SerializeField] PlayerConversant playerConversant;
+        [SerializeField] TextMeshProUGUI conversantName;
         [SerializeField] TextMeshProUGUI AIText;
         [SerializeField] Button nextButton;
+        [SerializeField] Button quitButton;
         [SerializeField] GameObject AIResponse;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
@@ -19,19 +21,23 @@ namespace RPG.UI
         void Start()
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-            nextButton.onClick.AddListener(Next);
+            playerConversant.OnConversationUpdated += UpdateUI;
 
-            UpdateUI();
-        }
+            nextButton.onClick.AddListener(() => playerConversant.Next());
+            quitButton.onClick.AddListener(() => playerConversant.Quit());
 
-        private void Next()
-        {
-            playerConversant.Next();
             UpdateUI();
         }
 
         private void UpdateUI()
         {
+            gameObject.SetActive(playerConversant.IsActive());
+            if (!playerConversant.IsActive())
+            {
+                return;
+            }
+
+            conversantName.text = playerConversant.GetCurrentConversantName();
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 
@@ -62,7 +68,6 @@ namespace RPG.UI
                 button.onClick.AddListener(() =>
                 {
                     playerConversant.SelectChoice(choice);
-                    UpdateUI();
                 });
             }
         }

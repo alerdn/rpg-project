@@ -12,6 +12,8 @@ namespace RPG.Dialogue
         [SerializeField] string text;
         [SerializeField] List<string> children = new List<string>();
         [SerializeField] Rect rect = new Rect(0, 0, 200, 125);
+        [SerializeField] string OnEnterAction;
+        [SerializeField] string OnExitAction;
 
         public Rect GetRect()
         {
@@ -31,6 +33,16 @@ namespace RPG.Dialogue
         public bool IsPlayerSpeaking()
         {
             return isPlayerSpeaking;
+        }
+
+        public string GetOnEnterAction()
+        {
+            return OnEnterAction;
+        }
+
+        public string GetOnExitAction()
+        {
+            return OnExitAction;
         }
 
 #if UNITY_EDITOR
