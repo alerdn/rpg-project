@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7063352356537104081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 3ab036d3-de32-429d-8e2c-1849cae05c81
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Dear God, thank you stranger!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 530
+    y: 240
+    width: 200
+    height: 125
+  OnEnterAction: AboutQuest
+  OnExitAction: GiveQuest
+--- !u!114 &-2731511240913804935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 9e03b079-7b22-4808-b43b-5027bce18ba3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Please! Someone help! The major are going to be killed
+  children:
+  - d671b2be-ac24-4421-ab32-a1660a24e141
+  - b2782de2-f5cf-4843-8bb3-595de4409fae
+  rect:
+    serializedVersion: 2
+    x: 28
+    y: 68
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bcea215fdf3e14584687cdbf349b91, type: 3}
+  m_Name: Save the major
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -2731511240913804935}
+  - {fileID: 3073296276526790515}
+  - {fileID: 8810661511813864395}
+  - {fileID: -7063352356537104081}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3073296276526790515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: d671b2be-ac24-4421-ab32-a1660a24e141
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Big day, I hated him
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 278
+    y: 68
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 
+--- !u!114 &8810661511813864395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: b2782de2-f5cf-4843-8bb3-595de4409fae
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Give me directions! I'll save him
+  children:
+  - 3ab036d3-de32-429d-8e2c-1849cae05c81
+  rect:
+    serializedVersion: 2
+    x: 280
+    y: 240
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 

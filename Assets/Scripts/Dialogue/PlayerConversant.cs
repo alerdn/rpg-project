@@ -92,7 +92,7 @@ namespace RPG.Dialogue
 
             TriggerExitAction();
             currentNode = children[UnityEngine.Random.Range(0, children.Count())];
-            TriggerExitAction();
+            TriggerEnterAction();
 
             OnConversationUpdated();
         }
