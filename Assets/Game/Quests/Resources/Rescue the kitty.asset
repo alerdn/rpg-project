@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: Rescue the kitty
   m_EditorClassIdentifier: 
   objectives:
-  - Find a latter
-  - Climp the latter
-  - Calm down the cat
-  - Bring him to Donna
+  - reference: 1
+    descriptoin: Find a latter
+  - reference: 2
+    descriptoin: Climp up the latter
+  - reference: 3
+    descriptoin: Calm down the kitty
+  - reference: 4
+    descriptoin: Save the kitty
+  rewards:
+  - number: 1
+    item: {fileID: 11400000, guid: d64a307491012e543995a2eef4f8cf74, type: 2}

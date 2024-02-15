@@ -8,8 +8,8 @@ namespace RPG.Quests
     [Serializable]
     public class QuestStatus
     {
-        Quest quest;
-        List<string> completedObjectives = new List<string>();
+        public Quest quest;
+        public List<string> completedObjectives = new List<string>();
         private object objectState;
 
         [Serializable]

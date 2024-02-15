@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Save the major
   m_EditorClassIdentifier: 
   objectives:
-  - Go to the city hall
-  - Find the key to the door
-  - Kill the aggressor
+  - reference: 1
+    descriptoin: Go to the city hall
+  - reference: 2
+    descriptoin: Open the door
+  - reference: 3
+    descriptoin: Save the major
+  rewards: []

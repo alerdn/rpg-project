@@ -19,14 +19,14 @@ namespace RPG.UI.Quests
             title.text = quest.GetTitle();
 
             ClearObjectives();
-            foreach (string objective in quest.GetObjectives())
+            foreach (var objective in quest.GetObjectives())
             {
-                GameObject prefab = status.IsObjectiveComplete(objective) ?
+                GameObject prefab = status.IsObjectiveComplete(objective.reference) ?
                     objectivePrefab :
                     objectiveIncompletePrefab;
 
                 TMP_Text objectiveText = Instantiate(prefab, objectiveContainer).GetComponentInChildren<TMP_Text>();
-                objectiveText.text = objective;
+                objectiveText.text = objective.descriptoin;
             }
         }
 
