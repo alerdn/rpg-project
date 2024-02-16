@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace RPG.Dialogue
         [SerializeField] Rect rect = new Rect(0, 0, 200, 125);
         [SerializeField] string OnEnterAction;
         [SerializeField] string OnExitAction;
+        [SerializeField] private Condition condition;
 
         public Rect GetRect()
         {
@@ -43,6 +45,11 @@ namespace RPG.Dialogue
         public string GetOnExitAction()
         {
             return OnExitAction;
+        }
+
+        public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
         }
 
 #if UNITY_EDITOR

@@ -1,5 +1,85 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8923146277473192696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 21aa4672-3a61-4bcb-b31e-8ef712057d1e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: He is safe already
+  children:
+  - 256817d4-80aa-447f-8bc3-66c05a0243b1
+  rect:
+    serializedVersion: 2
+    x: 293
+    y: 515
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 
+  condition:
+    predicate: HasInventoryItem
+    parameters:
+    - 28c6f2e6-46e9-4879-a14f-d6998c781cb7
+--- !u!114 &-8173465344120247749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: aac8ce31-e23a-4fa8-a733-a25b809e91cc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I'll Kill you
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 528
+    y: 68
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-7580966687136069916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 256817d4-80aa-447f-8bc3-66c05a0243b1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Thank God
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 543
+    y: 515
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &-7063352356537104081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23,6 +103,37 @@ MonoBehaviour:
     height: 125
   OnEnterAction: AboutQuest
   OnExitAction: GiveQuest
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-3096179030030548803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: dd4e04ad-bc83-4078-af92-c79447d8fb45
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Shut up already, I'm going
+  children:
+  - 236494f5-873b-4733-9375-37edbdce335a
+  rect:
+    serializedVersion: 2
+    x: 294
+    y: 379
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 
+  condition:
+    predicate: HasQuest
+    parameters:
+    - Save the major
 --- !u!114 &-2731511240913804935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,6 +151,8 @@ MonoBehaviour:
   children:
   - d671b2be-ac24-4421-ab32-a1660a24e141
   - b2782de2-f5cf-4843-8bb3-595de4409fae
+  - dd4e04ad-bc83-4078-af92-c79447d8fb45
+  - 21aa4672-3a61-4bcb-b31e-8ef712057d1e
   rect:
     serializedVersion: 2
     x: 28
@@ -48,6 +161,9 @@ MonoBehaviour:
     height: 125
   OnEnterAction: 
   OnExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +181,11 @@ MonoBehaviour:
   - {fileID: 3073296276526790515}
   - {fileID: 8810661511813864395}
   - {fileID: -7063352356537104081}
+  - {fileID: -3096179030030548803}
+  - {fileID: -8923146277473192696}
+  - {fileID: 8826060523234321529}
+  - {fileID: -7580966687136069916}
+  - {fileID: -8173465344120247749}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &3073296276526790515
 MonoBehaviour:
@@ -80,7 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Big day, I hated him
-  children: []
+  children:
+  - aac8ce31-e23a-4fa8-a733-a25b809e91cc
   rect:
     serializedVersion: 2
     x: 278
@@ -89,6 +211,9 @@ MonoBehaviour:
     height: 125
   OnEnterAction: 
   OnExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &8810661511813864395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +238,32 @@ MonoBehaviour:
     height: 125
   OnEnterAction: 
   OnExitAction: 
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &8826060523234321529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6750a50e037e0419c9626d30d57358, type: 3}
+  m_Name: 236494f5-873b-4733-9375-37edbdce335a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hurry then!!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 544
+    y: 379
+    width: 200
+    height: 125
+  OnEnterAction: 
+  OnExitAction: 
+  condition:
+    predicate: 
+    parameters: []

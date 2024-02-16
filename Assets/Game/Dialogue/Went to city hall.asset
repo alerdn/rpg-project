@@ -38,3 +38,6 @@ MonoBehaviour:
     height: 125
   OnEnterAction: 
   OnExitAction: CompleteObjective
+  condition:
+    predicate: 
+    parameters: []

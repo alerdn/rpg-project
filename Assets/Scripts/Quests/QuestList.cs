@@ -1,5 +1,6 @@
 using GameDevTV.Inventories;
 using GameDevTV.Saving;
+using RPG.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace RPG.Quests
 {
-    public class QuestList : MonoBehaviour, ISaveable
+    public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
         [SerializeField] List<QuestStatus> statuses = new List<QuestStatus>();
 
@@ -57,7 +58,7 @@ namespace RPG.Quests
 
         private void GiveReward(Quest quest)
         {
-        foreach (var reward in quest.GetRewards())
+            foreach (var reward in quest.GetRewards())
             {
                 bool success = GetComponent<Inventory>().AddToFirstEmptySlot(reward.item, reward.number);
                 if (!success)
@@ -87,6 +88,16 @@ namespace RPG.Quests
             {
                 statuses.Add(new QuestStatus(objectState));
             }
+        }
+
+        public bool? Evaluate(string predicate, string[] parameters)
+        {
+            return predicate switch
+            {
+                "HasQuest" => HasQuest(Quest.GetByName(parameters[0])),
+                "CompletedQuest" => GetQuestStatus(Quest.GetByName(parameters[0])).IsComplete(),
+                _ => null
+            };
         }
     }
 }
