@@ -25,9 +25,17 @@ MonoBehaviour:
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: HasInventoryItem
-    parameters:
-    - 28c6f2e6-46e9-4879-a14f-d6998c781cb7
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Save the major
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Save the major
+        negate: 0
 --- !u!114 &-8173465344120247749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,8 +60,7 @@ MonoBehaviour:
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-7580966687136069916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,8 +85,7 @@ MonoBehaviour:
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-7063352356537104081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,8 +110,7 @@ MonoBehaviour:
   OnEnterAction: AboutQuest
   OnExitAction: GiveQuest
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-3096179030030548803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,9 +136,17 @@ MonoBehaviour:
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: HasQuest
-    parameters:
-    - Save the major
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Save the major
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Save the major
+        negate: 1
 --- !u!114 &-2731511240913804935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +175,7 @@ MonoBehaviour:
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,14 +218,18 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 278
-    y: 68
+    y: 67
     width: 200
     height: 125
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Save the major
+        negate: 1
 --- !u!114 &8810661511813864395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,15 +248,19 @@ MonoBehaviour:
   - 3ab036d3-de32-429d-8e2c-1849cae05c81
   rect:
     serializedVersion: 2
-    x: 280
-    y: 241
+    x: 288
+    y: 210
     width: 200
     height: 125
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Save the major
+        negate: 1
 --- !u!114 &8826060523234321529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,5 +285,4 @@ MonoBehaviour:
   OnEnterAction: 
   OnExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
