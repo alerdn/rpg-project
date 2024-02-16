@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Quests
-{ 
+{
     [Serializable]
     public class QuestStatus
     {
@@ -60,6 +60,19 @@ namespace RPG.Quests
             state.questName = quest.name;
             state.completedObjectives = completedObjectives;
             return state;
+        }
+
+        public bool IsComplete()
+        {
+            foreach (var objective in quest.GetObjectives())
+            {
+                if (!completedObjectives.Contains(objective.reference))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

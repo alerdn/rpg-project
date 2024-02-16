@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using RPG.Quests;
+using System;
 
 namespace RPG.UI.Quests
 {
@@ -12,6 +13,7 @@ namespace RPG.UI.Quests
         [SerializeField] Transform objectiveContainer;
         [SerializeField] GameObject objectivePrefab;
         [SerializeField] GameObject objectiveIncompletePrefab;
+        [SerializeField] TMP_Text rewardText;
 
         public void Setup(QuestStatus status)
         {
@@ -28,6 +30,31 @@ namespace RPG.UI.Quests
                 TMP_Text objectiveText = Instantiate(prefab, objectiveContainer).GetComponentInChildren<TMP_Text>();
                 objectiveText.text = objective.descriptoin;
             }
+            rewardText.text = GetRewardText(quest);
+        }
+
+        private string GetRewardText(Quest quest)
+        {
+            string rewardText = "";
+            foreach (var reward in quest.GetRewards())
+            {
+                if (rewardText != "")
+                {
+                    rewardText += ", ";
+                }
+                if (reward.number > 1)
+                {
+                    rewardText += reward.number + " ";
+                }
+                rewardText += reward.item.GetDisplayName();
+            }
+            if (rewardText == "")
+            {
+                rewardText = "No reward";
+            }
+
+            rewardText += ".";
+            return rewardText;
         }
 
         private void ClearObjectives()

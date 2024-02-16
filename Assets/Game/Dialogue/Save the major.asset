@@ -17,8 +17,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 530
-    y: 240
+    x: 562
+    y: 244
     width: 200
     height: 125
   OnEnterAction: AboutQuest
@@ -108,7 +108,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 280
-    y: 240
+    y: 241
     width: 200
     height: 125
   OnEnterAction: 
